@@ -65,12 +65,15 @@ INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,Stadium,Cit
 INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,Stadium,City,State) VALUES ('Jan 14 1968','II (2)','Green Bay Packers',33,'Oakland Raiders',14,'Bart Starr+','Orange Bowl','Miami','Florida');
 INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,Stadium,City,State) VALUES ('Jan 15 1967','I (1)','Green Bay Packers',35,'Kansas City Chiefs',10,'Bart Starr+','Memorial Coliseum','Los Angeles','California');
 
+--Find the average points for Superbowl winners
 SELECT AVG(Winner_Pts) AS Avg_Winning_Points
 FROM superbowls;
 
+--Find all Superbowl games that the New England Patriots have been in, win or lose
 SELECT * FROM superbowls
 WHERE Winner = 'New England Patriots' OR Loser = 'New England Patriots';
 
+--List the teams who have won more than 3 superbowls
 SELECT Winner, COUNT(*) AS Wins
 FROM superbowls
 GROUP BY Winner HAVING wins > 3
