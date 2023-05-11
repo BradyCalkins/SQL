@@ -1,0 +1,70 @@
+/* Create table about famous actor's and what movies they star in */
+
+CREATE TABLE Actors (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  fullname TEXT,
+  age INTEGER,
+  nationality TEXT
+);
+
+INSERT INTO Actors (fullname, age, nationality) VALUES
+  ('Tom Hanks', 65, 'American'),
+  ('Meryl Streep', 72, 'American'),
+  ('Leonardo DiCaprio', 47, 'American'),
+  ('Angelina Jolie', 46, 'American'),
+  ('Brad Pitt', 58, 'American'),
+  ('Jennifer Lawrence', 31, 'American'),
+  ('Johnny Depp', 58, 'American'),
+  ('Scarlett Johansson', 37, 'American'),
+  ('Robert Downey Jr.', 57, 'American'),
+  ('Dwayne Johnson', 49, 'American'),
+  ('Emma Stone', 33, 'American'),
+  ('Chris Hemsworth', 38, 'Australian'),
+  ('Natalie Portman', 40, 'Israeli-American'),
+  ('Will Smith', 53, 'American'),
+  ('Charlize Theron', 46, 'South African');
+  
+ CREATE TABLE Movies (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  actors_id INTEGER,
+  movie TEXT,
+  year TEXT);
+
+INSERT INTO Movies (actors_id, movie, year) VALUES
+  (1, 'Forrest Gump', '1994'),
+  (1, 'Cast Away', '2000'),
+  (2, 'The Devil Wears Prada', '2006'),
+  (2, 'Sophies Choice', '1982'),
+  (3, 'Titanic', '1997'),
+  (3, 'The Revenant', '2015'),
+  (4, 'Maleficent', '2014'),
+  (4, 'Mr. & Mrs. Smith', '2005'),
+  (5, 'Fight Club', '1999'),
+  (5, 'Once Upon a Time in Hollywood', '2019'),
+  (6, 'Silver Linings Playbook', '2012'),
+  (6, 'The Hunger Games', '2012'),
+  (7, 'Pirates of the Caribbean: The Curse of the Black Pearl', '2003'),
+  (7, 'Edward Scissorhands', '1990'),
+  (8, 'Avengers: Endgame', '2019'),
+  (8, 'Lost in Translation', '2003'),
+  (9, 'Iron Man', '2008'),
+  (9, 'Sherlock Holmes', '2009'),
+  (10, 'Jumanji: Welcome to the Jungle', '2017'),
+  (10, 'Fast & Furious Presents: Hobbs & Shaw', '2019'),
+  (11, 'La La Land', '2016'),
+  (11, 'Birdman', '2014'),
+  (12, 'Thor', '2011'),
+  (12, 'The Avengers', '2012'),
+  (13, 'Black Swan', '2010'),
+  (13, 'V for Vendetta', '2005'),
+  (14, 'Men in Black', '1997'),
+  (14, 'Independence Day', '1996'),
+  (15, 'Mad Max: Fury Road', '2015'),
+  (15, 'Monster', '2003');
+
+/*Return the actors' name, which movies they were in, and when those movies were made*/
+SELECT actors.fullname,movies.movie,movies.year
+FROM Actors
+JOIN movies
+ON actors.id = movies.actors_id
+ORDER BY movies.year asc;
